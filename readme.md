@@ -1,6 +1,6 @@
 #Pirlo_DB :: PDO Abstract Class
 
-Abstract database class using PDO, inspired by Eloquent from laravel but more basic implementations
+Abstract database class using PDO, the end syntax inspired by Eloquent from laravel but more basic implementations
 [Eloquent Laravel] (https://laravel.com/docs/5.1/eloquent). Not much tested yet, it made for my own learning purpose but feel free to use it on your project, and let me know if there are any bugs or anything i can improve.
 
 ##todo
@@ -61,6 +61,7 @@ Abstract database class using PDO, inspired by Eloquent from laravel but more ba
  ```
 
 * Update
+
   Use where() to select which row want to be entered
  ```  
  $test->where('username', '=', 'name')->update([
@@ -69,12 +70,14 @@ Abstract database class using PDO, inspired by Eloquent from laravel but more ba
  ]);
  ```
 * Delete
+
   Use where() to select which row want to be deleted
   ```
   $test->where('username', '=', 'name')->delete();
   ```
 
 * orderBy
+
   orderBy() has two parameter (column and type[DESC or ASC])
 
   ```
@@ -82,6 +85,7 @@ Abstract database class using PDO, inspired by Eloquent from laravel but more ba
   ```
 
 * take
+
   take to limit the result, put the number as parameter, if chained with orderBy(), orderBy() must be used first
 
   ```
