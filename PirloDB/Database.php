@@ -32,11 +32,16 @@ class Database
     }
   }
 
+  public function __clone()
+  {
+    return false;
+  }
+
   /**
     * Get Database instance
     * Singleton pattern
     */
-  public function getInstance()
+  public static function getInstance()
   {
     if(!isset(self::$_instance))
      self::$_instance = new Database();
@@ -73,10 +78,16 @@ class Database
   {
     $this->_query = "SELECT $this->_columns FROM $this->_table WHERE"; //achtung extra whitespace at the end
 
-    $this->_prevData[] = array(
-                          'col'   => $col,
-                          'sign'  => $sign,
-                          'value' => $value
+    //first where method
+    if (count($this->_prevData) == 0) {
+      $bridge = '';
+    }
+
+    $this->_prevData[]  = array(
+                            'col'    => $col,
+                            'sign'   => $sign,
+                            'value'  => $value,
+                            'bridge' => $bridge,
                           );
 
     $this->getWhere($bridge);
@@ -108,12 +119,13 @@ class Database
 
     $x = 1;
     foreach ($this->_prevData as $prev) {
+
+      if ($x <= count($this->_prevData)) {
+        $this->_attr .= $prev['bridge'];
+      }
+
       $this->_attr    .= $prev['col'] .' '.  $prev['sign'] .' '. '?';
       $this->_params[] = $prev['value'];
-
-      if ($x < count($this->_prevData)) {
-        $this->_attr .= $bridge;
-      }
 
       $x++;
     }
@@ -129,7 +141,6 @@ class Database
   {
     $cols   = implode(", ", array_keys($fields));
     $values = '';
-    $params = [];
     $x      = 1;
 
     foreach ($fields as $field) {
@@ -153,7 +164,6 @@ class Database
   public function update($fields = array())
   {
     $cols   = '';
-    $params = [];
     $x      = 1;
     //get previous data count
     $total_prev = count($this->_params);

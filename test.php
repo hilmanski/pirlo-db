@@ -3,15 +3,15 @@ use PirloDB\Database;
 
 require_once 'vendor/autoload.php';
 
-$test = new Database();
+$test = Database::getInstance();
 $test->setTable('users');
 
-$users = $test->select()->all();
+// $users = $test->select()->all();
 // $users = $test->select('username, password')->all();
 // $users = $test->select('username')->first();
 // $users = $test->where('username', '=', 'endy')->first();
 // $users = $test->select('username')->where('username', '=', 'hilman')->all();
-// $users = $test->where('username', '=', 'hilman')->orWhere('username', '=', 'endy')->all();
+// $users = $test->where('username', '=', 'hilman')->orWhere('username', '=', 'endy')->where('password', '=', '87589')->all();
 // $users = $test->where('username', '=', 'hilman')->where('password', '=', 12312312)->all();
 
 // $test->create([
