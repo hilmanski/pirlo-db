@@ -3,10 +3,12 @@ use PirloDB\Database;
 
 require_once 'vendor/autoload.php';
 
+//usage example
+
 $test = Database::getInstance();
 $test->setTable('users');
 
-// $users = $test->select()->all();
+$users = $test->select()->all();
 // $users = $test->select('username, password')->all();
 // $users = $test->select('username')->first();
 // $users = $test->where('username', '=', 'endy')->first();

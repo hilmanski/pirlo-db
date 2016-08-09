@@ -1,7 +1,12 @@
 {
-  "autoload" : {
-    "psr-4" : {
-      "PirloDB\\": "PirloDB/"
+    "name": "hilmanrdn/pirlo-db",
+    "description": "Simple class to work with database",
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+    },
+    "autoload" : {
+      "psr-4" : {
+        "PirloDB\\": "PirloDB/"
+      }
     }
-  }
 }
