@@ -9,5 +9,5 @@
         "PirloDB\\": "PirloDB/"
       }
     },
-    "minimum-stability" : "dev"
+    "minimum-stability" : "stable"
 }
