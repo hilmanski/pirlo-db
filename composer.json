@@ -1,7 +1,7 @@
 {
     "name": "hilmanrdn/pirlo-db",
     "description": "Simple class to work with database",
-    "minimum-stability" : "dev",
+    "minimum-stability" : "stable",
     "require": {
         "php": ">=5.3.0"
     },
