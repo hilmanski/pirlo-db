@@ -3,7 +3,14 @@
 Abstract database class using PDO, the end syntax inspired by Eloquent from laravel but more basic implementations
 [Eloquent Laravel] (https://laravel.com/docs/5.1/eloquent). Not much tested yet, it made for my own learning purpose but feel free to use it on your project, and let me know if there are any bugs or anything i can improve.
 
-##todo
+
+##Install
+
+```
+composer require "hilmanrdn/pirlo-db: *"
+```
+
+##Todo
 
 * show error, success or fail
 * return as JSON
