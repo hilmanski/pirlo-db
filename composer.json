@@ -1,7 +1,6 @@
 {
     "name": "hilmanrdn/pirlo-db",
     "description": "Simple class to work with database",
-    "minimum-stability" : "stable",
     "require": {
         "php": ">=5.3.0"
     },
@@ -9,5 +8,6 @@
       "psr-4" : {
         "PirloDB\\": "PirloDB/"
       }
-    }
+    },
+    "minimum-stability" : "dev"
 }
