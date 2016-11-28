@@ -5,27 +5,17 @@ use \PDO;
 
 class Database
 {
-   /**
-     * Add Database Credentials
-     *
-     */
-  private $server  = 'localhost',
-          $user    = 'root',
-          $pass    = 'root',
-          $db_name = 'pdo_tuts';
-
   private static $_instance = null;
   private $_conn, $_table, $_query, $_columns = '*', $_params = null, $_attr = null,
           $_statement, $_results, $_prevData;
 
    /**
-     * Show the profile for the given user.
-     *
+     * setup database config
      */
-  public function __construct()
+  protected function __construct($server, $user, $pass, $db_name)
   {
     try {
-      $this->_conn = new PDO("mysql:host=$this->server;dbname=$this->db_name", $this->user, $this->pass);
+      $this->_conn = new PDO("mysql:host=$server;dbname=$db_name", $user, $pass);
       $this->_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo 'error! :' . $e->getMessage();
@@ -41,10 +31,10 @@ class Database
     * Get Database instance
     * Singleton pattern
     */
-  public static function getInstance()
+  public static function getInstance($server, $user, $pass, $db_name)
   {
     if(!isset(self::$_instance))
-     self::$_instance = new Database();
+     self::$_instance = new Database($server, $user, $pass, $db_name);
 
     return self::$_instance;
   }

@@ -1,7 +1,7 @@
 #Pirlo_DB :: PDO Abstract Class
 
 Abstract database class using PDO, the end syntax inspired by Eloquent from laravel but more basic implementations
-[Eloquent Laravel] (https://laravel.com/docs/5.1/eloquent). Not much tested yet, it made for my own learning purpose but feel free to use it on your project, and let me know if there are any bugs or anything i can improve. 
+[Eloquent Laravel] (https://laravel.com/docs/5.1/eloquent). Not much tested yet, it made for my own learning purpose but feel free to use it on your project, and let me know if there are any bugs or anything i can improve.
 
 
 ##Install
@@ -26,8 +26,8 @@ composer require "hilmanrdn/pirlo-db: dev-master"
 
   require_once 'vendor/autoload.php';
 
-  $test = new Database();
-  $test->setTable('tableName');
+  $test = Database::getInstance($server, $user, $pass, $db_name);
+  $test->setTable($tableName);
   ```
 
 * Select and retrieve data
